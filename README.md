@@ -56,15 +56,6 @@ When abnormal behavior is detected, the corresponding video segment is automatic
 
 ---
 
-### Notes
-
-- To find your Google Drive file ID, copy the string after `/d/` and before `/view?` in your share link.
-- Example link:  
-  `https://drive.google.com/file/d/1pIY7...bS9/view?usp=sharing`  
-  File ID: `1pIY7...bS9`
-- Downloading and loading the Docker image tar file may take some time due to its large size.
-
----
 
 ## Contact
 
