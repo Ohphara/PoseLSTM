@@ -19,26 +19,26 @@ When abnormal behavior is detected, the corresponding video segment is automatic
 ### 1) Setting up Jetson Nano and Environment
 
 1. **Connect an Ethernet cable and a webcam to your Jetson Nano.**
-2. Open a terminal and allow X server access for Docker:
-    ```bash
-    xhost +local:root
-    ```
-3. **Install `gdown` to download the Docker image tar file from Google Drive:**
+2. **Install `gdown` to download the Docker image tar file from Google Drive:**
     ```bash
     pip install gdown
     ```
-4. **Download the prebuilt Docker image tar file using gdown:**  
+3. **Download the prebuilt Docker image tar file using gdown:**  
    *(Replace `YOUR_FILE_ID` with the actual file ID from Google Drive.)*
     ```bash
     gdown --id 1oY3wA6ZSioKAxCIXp_Yr_CHO1PMNqqRF -O 25_IAP_team6.tar
     ```
-5. **Load the Docker image on Jetson Nano:**
+4. **Load the Docker image on Jetson Nano:**
     ```bash
     docker load -i 25_IAP_team6.tar
     ```
-6. (Optional) Verify the image was loaded successfully:
+5. (Optional) Verify the image was loaded successfully:
     ```bash
     docker images
+    ```
+6. Open a terminal and allow X server access for Docker:
+    ```bash
+    xhost +local:root
     ```
 7. **Enter the Docker container** (example command, modify as needed):
     ```bash
