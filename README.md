@@ -23,32 +23,50 @@ When abnormal behavior is detected, the corresponding video segment is automatic
     ```bash
     xhost +local:root
     ```
-3. **Download the prebuilt Docker image tar file from [Google Drive](https://drive.google.com/uc?id=YOUR_FILE_ID).**  
-   *(Replace `YOUR_FILE_ID` with the actual file ID.)*
-
-4. **Load the Docker image on Jetson Nano:**
+3. **Install `gdown` to download the Docker image tar file from Google Drive:**
+    ```bash
+    pip install gdown
+    ```
+4. **Download the prebuilt Docker image tar file using gdown:**  
+   *(Replace `YOUR_FILE_ID` with the actual file ID from Google Drive.)*
+    ```bash
+    gdown --id YOUR_FILE_ID -O 25_IAP_team6.tar
+    ```
+5. **Load the Docker image on Jetson Nano:**
     ```bash
     docker load -i 25_IAP_team6.tar
     ```
-5. (Optional) Verify the image was loaded successfully:
+6. (Optional) Verify the image was loaded successfully:
     ```bash
     docker images
     ```
-
-6. **Enter the Docker container** (example command, modify as needed):
+7. **Enter the Docker container** (example command, modify as needed):
     ```bash
-    sudo docker run -it --ipc=host --device=/dev/video0 --runtime nvidia  \
+    sudo docker run -it --ipc=host --device=/dev/video0 --runtime nvidia \
       -v /tmp/.X11-unix:/tmp/.X11-unix \
       -e DISPLAY=$DISPLAY \
       my_yolo:latest
     ```
-
-7. Inside the Docker container, run:
+8. Inside the Docker container, run:
     ```bash
     python3 main.py
     ```
-
-8. The system will start.  
+9. The system will start.  
    If abnormal behavior is detected, video clips will be saved automatically in the `videos/` folder.
 
 ---
+
+### Notes
+
+- To find your Google Drive file ID, copy the string after `/d/` and before `/view?` in your share link.
+- Example link:  
+  `https://drive.google.com/file/d/1pIY7...bS9/view?usp=sharing`  
+  File ID: `1pIY7...bS9`
+- Downloading and loading the Docker image tar file may take some time due to its large size.
+
+---
+
+## Contact
+
+For questions or issues, please [open an issue](https://github.com/Ohphara/PoseLSTM/issues)  
+or contact the maintainer by email.
