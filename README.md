@@ -21,7 +21,7 @@ When abnormal behavior is detected, the corresponding video segment is automatic
 1. **Connect an Ethernet cable and a webcam to your Jetson Nano.**
 2. Open a terminal and allow X server access for Docker:
     ```bash
-    xhost local:root
+    xhost +local:root
     ```
 3. **Download the prebuilt Docker image tar file from [Google Drive](https://drive.google.com/uc?id=YOUR_FILE_ID).**  
    *(Replace `YOUR_FILE_ID` with the actual file ID.)*
@@ -37,12 +37,9 @@ When abnormal behavior is detected, the corresponding video segment is automatic
 
 6. **Enter the Docker container** (example command, modify as needed):
     ```bash
-    sudo docker run -it --rm --runtime nvidia --network host \
+    sudo docker run -it --ipc=host --device=/dev/video0 --runtime nvidia  \
       -v /tmp/.X11-unix:/tmp/.X11-unix \
       -e DISPLAY=$DISPLAY \
-      -v $(pwd):/workspace \
-      --device /dev/video0:/dev/video0 \
-      --name pose_lstm_container \
       my_yolo:latest
     ```
 
