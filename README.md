@@ -30,7 +30,7 @@ When abnormal behavior is detected, the corresponding video segment is automatic
 4. **Download the prebuilt Docker image tar file using gdown:**  
    *(Replace `YOUR_FILE_ID` with the actual file ID from Google Drive.)*
     ```bash
-    gdown --id YOUR_FILE_ID -O 25_IAP_team6.tar
+    gdown --id 1oY3wA6ZSioKAxCIXp_Yr_CHO1PMNqqRF -O 25_IAP_team6.tar
     ```
 5. **Load the Docker image on Jetson Nano:**
     ```bash
